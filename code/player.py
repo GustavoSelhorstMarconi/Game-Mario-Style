@@ -112,6 +112,9 @@ class Player(pygame.sprite.Sprite):
     if keys[pygame.K_SPACE] and self.on_ground:
       self.jump()
       self.create_jump_particles(self.rect.midbottom)
+    elif keys[pygame.K_UP] and self.on_ground:
+      self.jump()
+      self.create_jump_particles(self.rect.midbottom)
   
   def get_status(self):
     if self.direction.y < 0:
@@ -135,7 +138,7 @@ class Player(pygame.sprite.Sprite):
   def get_damage(self):
     if not self.invincible:
       self.hit_sound.play()
-      self.change_health(-10)
+      self.change_health(-48.5)
       self.invincible = True
       self.hurt_time = pygame.time.get_ticks()
   
